@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-96" role="form" aria-labelledby="signup-title">
+  <h3 id="signup-title" class="text-xl font-medium mb-4 text-[#FA5A50]">Cadastre-se</h3>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="flex flex-col w-full gap-y-4">
+    <label for="document" class="mt-2 sr-only">Documento:</label>
+    <input id="document" formControlName="document" class="p-2 border border-gray-300 rounded" placeholder="Documento"
+      required aria-label="Documento" />
+
+    <label for="email" class="mt-2 sr-only">Email:</label>
+    <input id="email" type="email" formControlName="email" class="p-2 border border-gray-300 rounded"
+      placeholder="Email" required aria-label="Email" />
+
+    <label for="password" class="mt-2 sr-only">Senha:</label>
+    <input id="password" type="password" formControlName="password" class="p-2 border border-gray-300 rounded"
+      placeholder="Senha" required aria-label="Senha" />
+
+    <button type="submit"
+      class="mt-4 bg-[#A63832] text-white p-2 rounded hover:bg-[#D94A41] transition">Cadastre-se</button>
+    <button type="button" (click)="toggleForm.emit()" class="mt-2 text-blue-500">Já possui uma conta? Faça seu
+      login!</button>
+  </form>
+</div>

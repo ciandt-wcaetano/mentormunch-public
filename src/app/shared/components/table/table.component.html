@@ -1,0 +1,45 @@
+<div class="flex flex-col w-full h-full">
+  <div *ngIf="enableFilter" class="mb-4">
+    <p class="text-lg font-medium mb-2">Filtro</p>
+    <mat-form-field class="w-full lg:w-3/5">
+      <input matInput (keyup)="applyFilter($event)" placeholder="nome, skill, etc.." #input
+        aria-label="Filtro de dados">
+    </mat-form-field>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table mat-table [dataSource]="dataSource" matSort class="min-w-full" aria-label="Tabela de dados">
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="p-4 w-1/3"> {{ column }} </th>
+        <td mat-cell *matCellDef="let row" class="p-4 w-1/3"> {{ row[column] }} </td>
+      </ng-container>
+
+      <ng-container *ngIf="(enableAction1 || enableAction2)" matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="p-4 w-1/6"> ações </th>
+        <td class="p-4 w-1/12 gap-4" mat-cell *matCellDef="let row">
+          <button *ngIf="enableAction1"
+            class="lg:mr-2 my-1 text-sm text-purple-200 lg:p-2 rounded hover:transform hover:scale-125 transition"
+            (click)="onFirstAction(row)" aria-label="Visualizar"><mat-icon>visibility</mat-icon></button>
+          <button *ngIf="enableAction2"
+            class="lg:mr-2 my-1 text-sm text-purple-200 lg:p-2 rounded hover:transform hover:scale-125 transition"
+            (click)="onSecondAction(row)" aria-label="Adicionar"><mat-icon>add</mat-icon></button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row
+        *matHeaderRowDef="displayedColumns.concat((enableAction1 || enableAction2) ? ['actions'] : [])"></tr>
+
+      <tr mat-row
+        *matRowDef="let row; columns: displayedColumns.concat((enableAction1 || enableAction2) ? ['actions'] : [])">
+      </tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell p-8" [attr.colspan]="displayedColumns.length + ((enableAction1 || enableAction2) ? 1 : 0)">
+          Nenhum dado encontrado "{{ input?.nativeElement?.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator class="pb-10" [pageSizeOptions]="[5, 10, 25, 50]" aria-label="Seleciona a página dos usuários"></mat-paginator>
+  </div>
+</div>

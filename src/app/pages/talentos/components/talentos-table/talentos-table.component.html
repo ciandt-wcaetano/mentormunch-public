@@ -1,0 +1,12 @@
+<section class="lg:px-16 px-10 py-4">
+  <div *ngIf="dataSource?.data?.length == 0"
+    class="flex justify-center items-center" aria-live="polite">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="dataSource?.data?.length != 0">
+
+    <app-table class="" [dataSource]="dataSource" [displayedColumns]="displayedColumns" [enableFilter]="true"
+      [enableAction1]="true" [enableAction2]="false" (firstAction)="getAlunoPerfil($event)" />
+  </div>
+
+</section>

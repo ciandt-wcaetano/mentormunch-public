@@ -1,0 +1,22 @@
+<div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-96" role="form" aria-labelledby="signin-title">
+  <h3 id="signin-title" class="text-xl font-medium mb-4 text-[#FA5A50]">Entrar</h3>
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="flex flex-col w-full gap-y-4">
+    <label for="email" class="mt-2 sr-only">Email:</label>
+    <input id="email" type="email" formControlName="email" class="p-2 border border-gray-300 rounded"
+      placeholder="Email" required aria-label="Email" />
+
+    <label for="password" class="mt-2 sr-only">Senha:</label>
+    <input id="password" type="password" formControlName="password" class="p-2 border border-gray-300 rounded"
+      placeholder="Senha" required aria-label="Senha" />
+
+    <button type="submit" class="mt-4 bg-[#A63832] text-white p-2 rounded hover:bg-[#D94A41] transition"
+      [disabled]="loading || signinForm.invalid"
+      [ngClass]="{'bg-gray-300 hover:bg-gray-300': loading || signinForm.invalid}">
+      <span *ngIf="loading"
+        class="inline-block h-5 w-5 mr-3 animate-spin text-primary-500 rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" aria-hidden="true"></span>
+      <span *ngIf="!loading">Entrar</span>
+    </button>
+    <button type="button" (click)="toggleForm.emit()" class="mt-4 text-blue-500">Não possuí uma conta ainda?
+      Cadastre-se</button>
+  </form>
+</div>

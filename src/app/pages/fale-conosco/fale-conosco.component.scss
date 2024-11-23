@@ -1,0 +1,46 @@
+.fake-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #4A90E2;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, left 0.3s ease, top 0.3s ease;
+  }
+
+  @keyframes psychedelic {
+    0% {
+      transform: scale(2);
+      color: #ff0000;
+    }
+    25% {
+      transform: scale(3);
+      color: #138ef3;
+    }
+    50% {
+      transform: scale(2);
+      color: #0000ff;
+    }
+    75% {
+      transform: scale(3);
+      color: #3fa158;
+    }
+    100% {
+      transform: scale(2);
+      color: #ff0000;
+    }
+
+    100% {
+        transform: scale(2) rotate(360deg) translateY(0);
+        color: #ff0000;
+    }
+    50% {
+        transform: scale(2) rotate(180deg) translateY(-20px);
+        color: #0000ff;
+    }
+  }
+  
+  .psychedelic-text {
+    @apply text-4xl font-bold mb-4;
+    animation: psychedelic 2s infinite;
+  }
