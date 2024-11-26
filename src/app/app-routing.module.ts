@@ -33,6 +33,7 @@ const routes: Routes = [
       import('./pages/talentos/talentos.module').then((m) => m.TalentosModule),
   },
   { path: '**', component: NotFoundComponent } // Wildcard route for a 404 page
+
 ];
 
 @NgModule({
