@@ -25,10 +25,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit called');
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log('NavigationEnd event detected');
         this.getState();
       }
     });
