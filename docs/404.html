@@ -9,7 +9,9 @@
         window.location.replace('/mentormunch-public/#/login');
       } else {
         var path = window.location.pathname + window.location.search;
+        console.log("path", path);
         var newPath = path.replace('/mentormunch-public', '');
+        console.log("newPath", newPath);
         window.location.replace('/mentormunch-public/#' + newPath);
       }
     </script>
