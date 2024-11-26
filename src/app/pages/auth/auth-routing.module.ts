@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
+  { path: '**', redirectTo: '' },
   { path: '', component: AuthComponent },
   { path: 'login', component: AuthComponent, data: { state: 'login' } },
 ];
