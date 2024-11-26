@@ -5,13 +5,9 @@
     <title>Redirecting...</title>
     <script>
       // Redirect to the correct route
-      if (window.location.pathname === '/mentormunch-public') {
-        window.location.replace('/mentormunch-public/#/login');
-      } else {
-        var path = window.location.pathname + window.location.search;
-        var newPath = path.replace('/mentormunch-public', '');
-        window.location.replace('/mentormunch-public/#' + newPath);
-      }
+      var path = window.location.pathname + window.location.search;
+      var newPath = path.replace('/mentormunch-public', '');
+      window.location.replace('/mentormunch-public/#' + newPath);
     </script>
   </head>
   <body>
