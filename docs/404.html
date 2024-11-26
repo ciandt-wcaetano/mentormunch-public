@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/#/login">
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
     <script>
       // Redirect to the correct route
       var path = window.location.pathname;
-      window.location.replace('/mentormunch-public/#' + path);
+      var newPath = path.replace('/mentormunch-public', '');
+      window.location.replace('/mentormunch-public/#' + newPath);
     </script>
   </head>
   <body>
