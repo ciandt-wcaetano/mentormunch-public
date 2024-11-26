@@ -1,1 +1,0 @@
-import{a}from"/mentormunch-public/browser/chunk-CZK2SNMD.js";import"/mentormunch-public/browser/chunk-4D6FNTVM.js";import"/mentormunch-public/browser/chunk-EJJBCPAK.js";import"/mentormunch-public/browser/chunk-SB7U3PCE.js";export{a as MentoriasModule};

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,6 +33,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/talentos/talentos.module').then((m) => m.TalentosModule),
   },
+  { path: '**', component: NotFoundComponent } // Wildcard route for a 404 page
+
 ];
 
 @NgModule({

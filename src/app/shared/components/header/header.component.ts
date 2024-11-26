@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { TokenHelper } from '@app/shared/helpers/token.helper';
 import { SessionService } from '@core/services/session.service';
 
@@ -7,7 +7,7 @@ import { SessionService } from '@core/services/session.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() userState: UserState;
 
   isMenuOpen = false;
@@ -25,8 +25,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
+    console.log('ngAfterViewInit called');
     this.router.events.subscribe((event) => {
-      if (event.constructor.name === 'NavigationEnd') {
+      if (event instanceof NavigationEnd) {
+        console.log('NavigationEnd event detected');
         this.getState();
       }
     });
